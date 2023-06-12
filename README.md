@@ -1,8 +1,10 @@
 # Azure Tenant Scanner Powershell Utility Scripts
 
-This readme describes the Powershell functions available in [AzTSUtility.ps1](AzTSUtility.ps1).
+This readme describes the functions available in the Powershell files in this repo.
 
-The functions are provided to help with assessment and remediation of Azure Tenant Scanner control compliance issues. The controls and provided functions are listed below.
+The functions are provided to help with assessment and remediation of Azure Tenant Scanner control compliance issues. The Azure Tenant Scanner is a Microsoft CSEO-created tool provided for the community at https://github.com/azsk/AzTS-docs.
+
+The controls and provided functions are listed below. Each control's functions are in a .ps1 file named for that control ID, e.g. `Azure_KeyVault_NetSec_Disable_Public_Network_Access.ps1`.
 
 <br />
 
@@ -12,8 +14,7 @@ The functions are provided to help with assessment and remediation of Azure Tena
 - [How to use](#how-to-use)
   - [Powershell Execution Policy](#powershell-execution-policy)
 - [Controls and Functions](#controls-and-functions)
-  - [Azure Powershell Utility](#azure-powershell-utility)
-  - [Network Utility](#network-utility)
+  - [Utility](#utility)
   - [Azure\_AppService\_DP\_Use\_Secure\_FTP\_Deployment](#azure_appservice_dp_use_secure_ftp_deployment)
   - [Azure\_Bastion\_AuthZ\_Disable\_Shareable\_Link](#azure_bastion_authz_disable_shareable_link)
   - [Azure\_DataFactory\_DP\_Avoid\_Plaintext\_Secrets](#azure_datafactory_dp_avoid_plaintext_secrets)
@@ -31,7 +32,7 @@ The functions are provided to help with assessment and remediation of Azure Tena
 ## Pre-Requisites
 
 - [Powershell 7.x+](https://learn.microsoft.com/powershell/scripting/install/installing-powershell)
-  - Windows Powershell _may_ work, but if you run into something that isn't working... try the current Powershell.
+  - Windows Powershell 5.1 _may_ work, but I recommend current Powershell 7.x, especially if you run into anything that doesn't work.
 - [Azure Powershell](https://learn.microsoft.com/powershell/azure/install-az-ps)
 
 Note that you can also use the [Azure Cloud Shell](https://shell.azure.com) (select Powershell, not Bash), which has all required pre-requisites already installed.
@@ -73,7 +74,7 @@ Example to then reset the execution policy either to default (Restricted) or Rem
 <br />Parameters: None.
 
 `Uninstall-AzPowershell()`
-<br />Purpose: uninstalls all versions of installed Azure Powershell packages.
+<br />Purpose: easily uninstalls all versions of installed Azure Powershell packages.
 <br />Parameters: None.
 
 <br />
