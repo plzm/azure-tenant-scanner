@@ -101,6 +101,8 @@ Example to then reset the execution policy either to default (Restricted) or Rem
 <br />Purpose: Removes shared links for all the VMs in the specified Resource Group from the Bastion.
 <br />Parameters: SubscriptionId, ResourceGroupName, BastionHostName, VmResourceGroupName
 
+<br />
+
 ### Azure_DataFactory_DP_Avoid_Plaintext_Secrets
 
 `Get-DataFactoryV2()`
@@ -314,3 +316,4 @@ Example to then reset the execution policy either to default (Restricted) or Rem
 <br />Parameters: None
 
 <br />
+s

@@ -661,24 +661,23 @@ function Test-IsIpInCidr() {
     $Cidr
   )
 
-  Write-Debug -Debug:$debug -MessageData ("Test-IsIpInCidr :: IpAddress=" + $IpAddress + ", Cidr=" + $Cidr)
+  Write-Debug -Debug:$debug -Message ("Test-IsIpInCidr :: IpAddress=" + $IpAddress + ", Cidr=" + $Cidr)
 
   $ip = $IpAddress.Split('/')[0]
   $cidrIp = $Cidr.Split('/')[0]
   $cidrBitsToMask = $Cidr.Split('/')[1]
 
-  Write-Debug -Debug:$debug -MessageData ("ip=" + $ip + ", cidrIp=" + $cidrIp + ", cidrBitsToMask=" + $cidrBitsToMask)
-  Write-Debug -Debug:$debug -Message "cidrIp = $cidrIp"
+  #Write-Debug -Debug:$debug -Message ("ip=" + $ip + ", cidrIp=" + $cidrIp + ", cidrBitsToMask=" + $cidrBitsToMask)
 
   [int]$BaseAddress = [System.BitConverter]::ToInt32((([System.Net.IPAddress]::Parse($cidrIp)).GetAddressBytes()), 0)
   [int]$Address = [System.BitConverter]::ToInt32(([System.Net.IPAddress]::Parse($ip).GetAddressBytes()), 0)
   [int]$Mask = [System.Net.IPAddress]::HostToNetworkOrder(-1 -shl (32 - $cidrBitsToMask))
 
-  Write-Debug -Debug:$debug -MessageData ("BaseAddress=" + $BaseAddress + ", Address=" + $Address + ", Mask=" + $Mask)
+  #Write-Debug -Debug:$debug -Message ("BaseAddress=" + $BaseAddress + ", Address=" + $Address + ", Mask=" + $Mask)
 
   $result = (($BaseAddress -band $Mask) -eq ($Address -band $Mask))
 
-  Write-Debug -Debug:$debug -MessageData ("Result=" + $result)
+  #Write-Debug -Debug:$debug -Message ("Result=" + $result)
 
   return $result
 }
@@ -747,10 +746,8 @@ function Get-ServiceTagsForAzurePublicIp() {
   }
 
   if ($isFound -eq $false) {
-    Write-Debug -Debug:$debug -Message "$IpAddress"": Not found in any range"
+    Write-Debug -Debug:$debug -Message ($IpAddress + ": Not found in any range")
   }
-
-  Write-Debug -Debug:$debug -Message "Done!"
 
   , ($result | Sort-Object -Property "Name")
 }
